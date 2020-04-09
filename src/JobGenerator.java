@@ -35,15 +35,25 @@ public class JobGenerator {
 			try {
 				FileOutputStream fw = new FileOutputStream(f);
 				ObjectOutputStream ofw = new ObjectOutputStream(fw);
-				for (int i = 0; i <10; i++) {
-					Job temp= new Job(
-							ThreadLocalRandom.current().nextInt(10, 101),	//cpu burst
-							ThreadLocalRandom.current().nextInt(5, 201),     //memmory burst
-							ThreadLocalRandom.current().nextInt(1, 81),     //arrival time 
-							ThreadLocalRandom.current().nextInt(20, 61)      //io burst
-							);
-					ofw.writeObject(temp);
+				ofw.writeObject("name\t cpu\t memory\t io\t cpu	memory\t io\t cpu\t memory\t io\t cpu\t memory\t io\t cpu\t memory\t io\t cpu");
+				
+				for(int i=0;i<10;i++) {
+					ofw.write(i); //pid
+					ofw.writeObject(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
+					ofw.writeObject(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+					ofw.writeObject(ThreadLocalRandom.current().nextInt(1, 81)+"\t");   	//arrival time 
+					ofw.writeObject(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst
+				
+					int n =ThreadLocalRandom.current().nextInt(3, 6) ;
+					for (int j=0;j<n;j++) {
+						ofw.writeObject(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
+						ofw.writeObject(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+						ofw.writeObject(ThreadLocalRandom.current().nextInt(20, 61)+"\t");	
+					}
+					ofw.writeObject("\n");
 				}
+				
+				
 				ofw.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
