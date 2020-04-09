@@ -44,7 +44,7 @@ public class JobGenerator {
 				}
 				fw.newLine();
 				for(int i=0;i<100;i++) {
-					fw.write(i+1+"\t"); //pid
+					fw.write(i+1+"\t");												 //pid
 					fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
 					fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
 					fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst
@@ -54,7 +54,7 @@ public class JobGenerator {
 					int n =ThreadLocalRandom.current().nextInt(2, 4) ;
 					for (int j=0;j<n;j++) {
 						fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
-						fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+						fw.write(ThreadLocalRandom.current().nextInt(-100, 201)+"\t");     //Memory burst ( add negative )
 						fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burset 
 					}
 					fw.newLine();
