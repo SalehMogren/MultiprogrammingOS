@@ -4,10 +4,12 @@
 3- I/O Burst: 20-60
 4- Arrival time: 1-80
  */
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.nio.Buffer;
 import java.io.FileWriter;  
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -33,28 +35,33 @@ public class JobGenerator {
 	//this method will write on the file the random jobs
 	static	void createJobs(File f){
 			try {
-				FileOutputStream fw = new FileOutputStream(f);
-				ObjectOutputStream ofw = new ObjectOutputStream(fw);
-				ofw.writeObject("name\t cpu\t memory\t io\t cpu	memory\t io\t cpu\t memory\t io\t cpu\t memory\t io\t cpu\t memory\t io\t cpu");
-				
-				for(int i=0;i<10;i++) {
-					ofw.write(i); //pid
-					ofw.writeObject(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
-					ofw.writeObject(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
-					ofw.writeObject(ThreadLocalRandom.current().nextInt(1, 81)+"\t");   	//arrival time 
-					ofw.writeObject(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst
-				
-					int n =ThreadLocalRandom.current().nextInt(3, 6) ;
+				BufferedWriter fw =new BufferedWriter ( new FileWriter(f));
+//				ObjectOutputStream ofw = new ObjectOutputStream(fw);
+				fw.write("id\tcpu\tmemory\tio\tarTime\t");
+
+				for(int i = 0;i<5;i++) {
+					fw.write("cpu\tmemory\tio\t");
+				}
+				fw.newLine();
+				for(int i=0;i<100;i++) {
+					fw.write(i+1+"\t"); //pid
+					fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
+					fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+					fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst
+
+					fw.write(ThreadLocalRandom.current().nextInt(1, 81)+"\t");   	//arrival time 
+					
+					int n =ThreadLocalRandom.current().nextInt(2, 4) ;
 					for (int j=0;j<n;j++) {
-						ofw.writeObject(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
-						ofw.writeObject(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
-						ofw.writeObject(ThreadLocalRandom.current().nextInt(20, 61)+"\t");	
+						fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
+						fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+						fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burset 
 					}
-					ofw.writeObject("\n");
+					fw.newLine();
 				}
 				
 				
-				ofw.close();
+				fw.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 			      System.out.println("An error occurred.");
