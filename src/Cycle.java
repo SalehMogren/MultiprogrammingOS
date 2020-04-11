@@ -11,7 +11,7 @@ public class Cycle {
 		this.memory = 0 ;
 		
 	}
-	public Cycle(int cpuBurst , int memory , int IOBurst , int arrivalTime){
+	public Cycle(int cpuBurst , int memory , int IOBurst){
 		this.cpuBurst = cpuBurst;
 		this.memory = memory;
 		this.IOBurst = IOBurst;

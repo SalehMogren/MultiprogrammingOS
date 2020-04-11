@@ -50,7 +50,7 @@ public class PCB {
 	// add process cycles in queue
 	public void addCycle(int cpuBurst, int memory, int IOBurst,int arrivalTime) {
 
-		Cycle c = new Cycle(cpuBurst, memory, IOBurst,arrivalTime);
+		Cycle c = new Cycle(cpuBurst, memory, IOBurst);
 		this.Cycles.enqueue(c);
 	}
 	
@@ -63,7 +63,7 @@ public class PCB {
 			Cycle a = Cycles.serve();
 			System.out.println(
 					"CPU burst: " + a.getCpuBurst() + " Memory : " + a.getMemory() + " IO : " + a.getIOBurst() 
-					+" Arrival Time : " + a.getArrivalTime());
+					);
 			temp.enqueue(a);
 		}
 
