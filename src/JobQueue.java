@@ -15,12 +15,12 @@ public class JobQueue {
 	private BufferedReader br;
 	private FileReader fr;
 	private String sCurrentLine;
-	private Queue<PCB> JobQueue;
+	private PQ<PCB> JobQueue;
 	
 	public JobQueue() {
 		BufferedReader br = null;
 		FileReader fr = null;
-		JobQueue = new Queue<PCB>();
+		JobQueue = new PQ<PCB>();
 
 	}
 	
@@ -29,9 +29,7 @@ public class JobQueue {
 	// will talk about this
 	
 	
-	private Queue<PCB> loadToJobQueue() throws FileNotFoundException {
-		
-		
+	private PQ<PCB> loadToJobQueue() throws FileNotFoundException {
 		
 		return null;
 	}
@@ -49,9 +47,7 @@ public class JobQueue {
 	
 	
 	
-	
-	
-	public Queue<PCB> getProcesses() {
+	public PQ<PCB> getProcesses() {
 		try {
 			return this.loadToJobQueue();
 			
