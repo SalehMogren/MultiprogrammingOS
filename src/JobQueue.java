@@ -11,7 +11,7 @@ import java.io.IOException;
 public class JobQueue {
 	
 	
-	private static final String INPUTFILE = "src//inputFile.txt";
+	private static final String INPUTFILE = "inputFile.txt";
 	private BufferedReader br;
 	private FileReader fr;
 	private String sCurrentLine;
@@ -26,7 +26,7 @@ public class JobQueue {
 	
 	
 	
-	// 
+	// will talk about this
 	
 	
 	private Queue<PCB> loadToJobQueue() throws FileNotFoundException {
