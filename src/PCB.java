@@ -48,7 +48,7 @@ public class PCB {
 
 	}
 	// add process cycles in queue
-	public void addCycle(int cpuBurst, int memory, int IOBurst,int arrivalTime) {
+	public void addCycle(int cpuBurst, int memory, int IOBurst) {
 
 		Cycle c = new Cycle(cpuBurst, memory, IOBurst);
 		this.Cycles.enqueue(c);
