@@ -140,15 +140,15 @@ public class JobQueue {
 	
 	
 	
-	public PQ<PCB> getProcesses() {
-		try {
-			return this.loadToJobQueue();
-			
-		} catch (FileNotFoundException e) {
-
-			System.err.println("File not found!!");
-		}
-		return JobQueue;
+	public Queue<PCB> getProcesses() throws FileNotFoundException {
+		PQ<PCB> copy = JobQueue;
+		Queue<PCB> proccessQueeu = new Queue<PCB>();
+		
+		int n = copy.length();
+		for(int i = 0; i<n; i++)
+			proccessQueeu.enqueue(copy.serve().data);
+		return proccessQueeu;
+		
 	}
 	
 

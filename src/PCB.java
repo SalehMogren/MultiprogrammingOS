@@ -19,6 +19,8 @@ public class PCB {
 	private int CPUendTime;
 	private int readyQueueTime; // number of times the process has been in ready queue
 	private int endTime;
+	private ProccessState state;
+	
 
 	public PCB() {
 		this.pid = 0;
@@ -185,6 +187,14 @@ public class PCB {
 
 	public void setEndTime(int endTime) {
 		this.endTime = endTime;
+	}
+
+	public ProccessState getState() {
+		return state;
+	}
+
+	public void setState(ProccessState state) {
+		this.state = state;
 	}
 	
 	
