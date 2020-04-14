@@ -94,6 +94,46 @@ public class RAM {
 
 	private void removeMaxPCB(Queue<PCB> copy) {
 		// TODO Auto-generated method stub
+		
+		if (copy.length() == 0) {
+			return;
+		}
+		Queue<PCB> temp = new Queue<PCB>();
+		PCB Max = copy.serve(); 
+		PCB deletedPCB = null; // the max PCB from the WaitingQueue 
+		temp.enqueue(Max);
+		int id = Max.getPid();
+
+		while (copy.length() != 0) {//  find the max memory process in the waiting queue
+											 
+			if (copy.peek().getFirstMemory() > Max.getFirstMemory()) {
+				Max = copy.serve(); //  change the max if condition True 
+				id = Max.getPid(); // save the id of the max memory process
+				temp.enqueue(Max);
+			} 
+			else {
+				temp.enqueue(copy.serve());
+			}
+			++Clock.time;
+		}//
+		
+           // return the PCB's form temp to WaitingQueue Except the MAX
+		while (temp.length() != 0) {
+			if (temp.peek().getPid() == id) { 
+				deletedPCB = temp.serve();
+			} 
+			else {
+				this.waitingQueue.enqueue(temp.serve());
+			}
+			++Clock.time;
+		}//
+		this.availbleSIZE+=deletedPCB.getMemorySum();
+		deletedPCB.setState(ProccessState.KILLED);
+		finishedPCB.enqueue(deletedPCB);
+		
+		
+		
+		
 
 	}
 
