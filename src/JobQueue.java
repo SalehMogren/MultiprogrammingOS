@@ -56,7 +56,7 @@ public class JobQueue {
 				cpuBurst = Integer.parseInt(PCBInfo[1]);
 				memory = Math.abs(Integer.parseInt(PCBInfo[2])); //First memory should be positive
 				IOBurst = Integer.parseInt(PCBInfo[3]);
-				Artime = Integer.parseInt(PCBInfo[4]);
+				Artime = Math.abs(Integer.parseInt(PCBInfo[4]))*-1; //artime in (-)
 				pcb1.addCycle(cpuBurst, memory, IOBurst);// Cycle 1
 				cpuBurst = Integer.parseInt(PCBInfo[5]);
 				memory = Integer.parseInt(PCBInfo[6]);
