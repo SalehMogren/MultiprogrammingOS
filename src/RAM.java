@@ -32,7 +32,7 @@ public class RAM {
 		finishedPCB = new Queue<PCB>();
 
 	}
-
+	// Method To Load from the file to Queue
 	public PQ<PCB> loadToReady() {
 
 		if (jobQueue.length() == 0 && waitingQueue.length() == 0)
@@ -133,11 +133,56 @@ public class RAM {
 		deletedPCB.setState(ProccessState.KILLED);
 		finishedPCB.enqueue(deletedPCB);
 		
-		
-		
-		
-
 	}
+	
+	// checks if the waiting queue and job queue and ready queue is empty
+	public boolean isEmpty() {
+
+			if (jobQueue.length() == 0 && waitingQueue.length() == 0 && readyQueue.length() == 0) {
+				return true;
+			}
+
+			return false;
+		}
+	
+	// after IO burst this method is called to put back a process into the ready queue or waiting queue
+	public void addToReadyQueue(PCB process) {
+			
+			if(process.getCycles().length()==0) {
+				return;
+			}
+			
+				if (process.getFirstMemory() <= this.availbleSIZE) {
+
+					this.availbleSIZE -= (process.getFirstMemory());
+					process.setState(ProccessState.READY);
+					if(process.getReadyQueueTime()==0) {
+						
+						process.setReadyQueueTime(Clock.time);
+						}
+					readyQueue.enqueue(process, process.getFirstCPU());
+				
+
+				} else {
+					process.setState(ProccessState.WAITING);
+					process.waitNumIncrement();
+					waitingQueue.enqueue(process,process.getFirstCPU()*-1);
+				}
+
+			
+
+		}
+
+	public void addToFinshedQueue(PCB process) {
+			this.availbleSIZE+= process.getMemorySum();
+			this.finishedPCB.enqueue(process);
+		}
+		
+	
+	
+	
+	
+	
 
 	// getters and setters
 	public int getAvailbleSIZE() {
