@@ -14,7 +14,7 @@ public class RAM {
 	private int availbleSIZE;
 	private Queue<PCB> jobQueue;
 	private PQ<PCB> readyQueue;
-	private Queue<PCB> waitingQueue;
+	private PQ<PCB> waitingQueue;
 	private Queue<PCB> finishedPCB;
 	private JobQueue startingObj;
 
@@ -28,7 +28,7 @@ public class RAM {
 			e.printStackTrace();
 		}
 		readyQueue = new PQ<PCB>();
-		setWaitingQueue(new Queue<PCB>());
+		waitingQueue=new PQ<PCB>();
 		finishedPCB = new Queue<PCB>();
 
 	}
@@ -54,7 +54,7 @@ public class RAM {
 			// if its not fitting in the ready queue add to waiting queue
 			else {
 				proccess.setState(ProccessState.WAITING);
-				waitingQueue.enqueue(proccess);
+				waitingQueue.enqueue(proccess,proccess.getFirstCPU()*-1);
 				proccess.waitNumIncrement();
 			}
 			++Clock.time;
@@ -70,7 +70,7 @@ public class RAM {
 
 		while (waitingQueue.length() > 0) {
 			++Clock.time;
-			PCB proccess = waitingQueue.serve();
+			PCB proccess = waitingQueue.serve().data;
 
 			if (proccess.getFirstMemory() < availbleSIZE) {
 				availbleSIZE -= proccess.getFirstMemory();
@@ -85,10 +85,11 @@ public class RAM {
 		if (n == copy.length())
 			removeMaxPCB(copy);
 		else {
-			while (copy.length() != 0)
-				waitingQueue.enqueue(copy.serve());
+			while (copy.length() != 0) {
+				PCB temp = copy.serve();
+				waitingQueue.enqueue(temp,temp.getFirstCPU()*-1);
 			++Clock.time;
-
+			}
 		}
 	}
 
@@ -123,7 +124,8 @@ public class RAM {
 				deletedPCB = temp.serve();
 			} 
 			else {
-				this.waitingQueue.enqueue(temp.serve());
+				PCB tempPcb = temp.serve();
+				this.waitingQueue.enqueue(tempPcb,tempPcb.getFirstCPU()*-1);
 			}
 			++Clock.time;
 		}//
@@ -170,11 +172,11 @@ public class RAM {
 		this.finishedPCB = finishedPCB;
 	}
 
-	public Queue<PCB> getWaitingQueue() {
+	public PQ<PCB> getWaitingQueue() {
 		return waitingQueue;
 	}
 
-	public void setWaitingQueue(Queue<PCB> waitingQueue) {
+	public void setWaitingQueue(PQ<PCB> waitingQueue) {
 		this.waitingQueue = waitingQueue;
 	}
 
