@@ -14,7 +14,7 @@ public class RAM {
 	private int availbleSIZE;
 	private Queue<PCB> jobQueue;
 	private PQ<PCB> readyQueue;
-	private PQ<PCB> waitingQueue;
+	private Queue<PCB> waitingQueue;
 	private Queue<PCB> finishedPCB;
 	private JobQueue startingObj;
 
@@ -28,8 +28,11 @@ public class RAM {
 			e.printStackTrace();
 		}
 		readyQueue = new PQ<PCB>();
-		waitingQueue=new PQ<PCB>();
+		waitingQueue=new Queue<PCB>();
 		finishedPCB = new Queue<PCB>();
+		
+		this.availbleSIZE=578;
+		
 
 	}
 	// Method To Load from the file to Queue
@@ -54,7 +57,7 @@ public class RAM {
 			// if its not fitting in the ready queue add to waiting queue
 			else {
 				proccess.setState(ProccessState.WAITING);
-				waitingQueue.enqueue(proccess,proccess.getFirstCPU()*-1);
+				waitingQueue.enqueue(proccess);
 				proccess.waitNumIncrement();
 			}
 			++Clock.time;
@@ -70,7 +73,7 @@ public class RAM {
 
 		while (waitingQueue.length() > 0) {
 			++Clock.time;
-			PCB proccess = waitingQueue.serve().data;
+			PCB proccess = waitingQueue.serve();
 
 			if (proccess.getFirstMemory() < availbleSIZE) {
 				availbleSIZE -= proccess.getFirstMemory();
@@ -87,7 +90,7 @@ public class RAM {
 		else {
 			while (copy.length() != 0) {
 				PCB temp = copy.serve();
-				waitingQueue.enqueue(temp,temp.getFirstCPU()*-1);
+				waitingQueue.enqueue(temp);
 			++Clock.time;
 			}
 		}
@@ -125,7 +128,7 @@ public class RAM {
 			} 
 			else {
 				PCB tempPcb = temp.serve();
-				this.waitingQueue.enqueue(tempPcb,tempPcb.getFirstCPU()*-1);
+				this.waitingQueue.enqueue(tempPcb);
 			}
 			++Clock.time;
 		}//
@@ -166,7 +169,7 @@ public class RAM {
 				} else {
 					process.setState(ProccessState.WAITING);
 					process.waitNumIncrement();
-					waitingQueue.enqueue(process,process.getFirstCPU()*-1);
+					waitingQueue.enqueue(process);
 				}
 
 			
@@ -217,11 +220,11 @@ public class RAM {
 		this.finishedPCB = finishedPCB;
 	}
 
-	public PQ<PCB> getWaitingQueue() {
+	public Queue<PCB> getWaitingQueue() {
 		return waitingQueue;
 	}
 
-	public void setWaitingQueue(PQ<PCB> waitingQueue) {
+	public void setWaitingQueue(Queue<PCB> waitingQueue) {
 		this.waitingQueue = waitingQueue;
 	}
 
