@@ -19,142 +19,131 @@ public class CPU {
 		ram = new RAM();
 		readyQueue = ram.loadToReady();
 		waitingQueue = ram.getWaitingQueue();
-	
-		int m = 0; //Number of waiting processes in waiting queue
+
+		int m = 0; // Number of waiting processes in waiting queue
 
 		while (true) {
 			m = waitingQueue.length();
-			
-		// general way
-			
-			
+
+			// general way
+
 			if (Clock.time % 100 == 0 || readyQueue.length() == 0) {
 				// you should reactivate job scheduler
 				readyQueue = ram.loadToReady(); // new processes from the Job queue
-														
 
 			}
 			if (readyQueue.length() == 0 && m != 0) {
 				Clock.time++;
 				continue;
 			}
-			
+
 			if (readyQueue.length() == 0 && m == 0) {
 				return;
 			}
-			
-			
-			
+
 			PCB process = minProcess(readyQueue.serve());
-			
+
 			process.setState(ProccessState.RUNNING);
 			process.CPUNumIncrement();
 			int cBurst = process.getFirstCPU();
-			int arrtime=process.getarrtime();
-			for (int i = 0; i < cBurst && checkArr_Burst(readyQueue.serve()) ; i++)
-			
+			int arrtime = process.getarrtime();
+			for (int i = 0; i < cBurst && checkArr_Burst(process); i++)
+
 			{
 
-				if(checkArr_Burst(process)) 
+				if (checkArr_Burst(process))
 
 				{
-				
-				++Clock.time;
-				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 
-				arrtime++;
-				
+					++Clock.time;
+					process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 
+					arrtime++;
 
-				
-				}
-				else {
+				} else {
 					++Clock.time;
 					break;
 				}
 			}
-			
+
 			// out of the loop because of a new short process
- 			if(process.getFirstCPU()!=0) {
-				
-			if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
-				premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
-				continue;
-			}
-			
-			//process finished CPU and IO bursts
+			if (process.getFirstCPU() != 0) {
+
+				if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
+					premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
+					continue;
+				}
+
+				// process finished CPU and IO bursts
 				// might be null poitner exception
-		
-			
-			//process finished (add indicator in PCB for when process has no more cycles)
- 			}
- 		// waiting IO
- 					if (process.getFirstCycle().getCpuBurst() == 0) {
- 						int ioBurst = process.getFirstCycle().getIOBurst();
- 						for (int p = 0; p < ioBurst; p++) {
- 							process.setState(ProccessState.WAITING);
- 							++Clock.time;
- 							process.getFirstCycle().setIOBurst(process.getFirstCycle().getIOBurst() - 1);
- 						}
- 						process.IONumIncrement();
- 					}
- 					
- 					if(process.getFirstCPU()==0&&process.getFirstIO()==0) {
- 						Cycle newCycle = process.serveCycle();
- 						process.getFirstCycle().setMemory(process.getFirstMemory()+newCycle.getMemory());
- 						process.setState(ProccessState.READY);
- 						
- 						
- 						// add process back the readyQueue with(addToReadQueue)
- 						ram.addToReadyQueue(process);
- 					}
- 					
- 					if (ram.isEmpty()) {
- 						break;
- 					}
+
+				// process finished (add indicator in PCB for when process has no more cycles)
+			}
+			// waiting IO
+			if (process.getFirstCycle().getCpuBurst() == 0) {
+				int ioBurst = process.getFirstCycle().getIOBurst();
+				for (int p = 0; p < ioBurst; p++) {
+					process.setState(ProccessState.WAITING);
+					++Clock.time;
+					process.getFirstCycle().setIOBurst(process.getFirstCycle().getIOBurst() - 1);
+				}
+				process.IONumIncrement();
+			}
+
+			if (process.getFirstCPU() == 0 && process.getFirstIO() == 0) {
+				Cycle newCycle = process.serveCycle();
+				process.getFirstCycle().setMemory(process.getFirstMemory() + newCycle.getMemory());
+				process.setState(ProccessState.READY);
+
+				// add process back the readyQueue with(addToReadQueue)
+				ram.addToReadyQueue(process);
+			}
+
+			if (ram.isEmpty()) {
+				break;
+			}
 		}
 
 	}
 
-
-	//this method checkes if the next Process meet the araival condition and min process
-	// if it meat the arival but not the min process then its add to PQ premitedProcess
+	// this method checks if the next Process meet the arrival condition and min
+	// process
+	// if it meat the arrival but not the min process then its add to PQ
+	// premitedProcess
 	private boolean checkArr_Burst(PCB serve) {
-		PCB next=readyQueue.peek();
-		if(Clock.time >= next.getarrtime() ) {
-			
-		if(serve.getFirstCPU()>next.getFirstCPU()) {
-			
-			premetidProcess.enqueue(serve, serve.getFirstCycle().getCpuBurst());
-			return false;
+		PCB next = readyQueue.peek();
+		if (Clock.time >= next.getarrtime()) {
+
+			if (serve.getFirstCPU() > next.getFirstCPU()) {
+
+				premetidProcess.enqueue(serve, serve.getFirstCycle().getCpuBurst());
+				return false;
+			}
+			return true;
+
 		}
-		return true;
-		
-		}
-		
-		
-	
+
 		return false;
-		
+
 	}
-	//this method compare between the next Proccess in the readyQueu and PQ and returns the minimum Process
+
+	// this method compare between the next Process in the readyQueu and PQ and
+	// returns the minimum Process
 	private PCB minProcess(PCB serve) {
-		
+
 		// TODO Auto-generated method stub
 		PCB min = serve;
-		
-		if ( min.getFirstCPU() > readyQueue.peek().getFirstCPU()) 
+
+		if (min.getFirstCPU() > readyQueue.peek().getFirstCPU())
 			min = readyQueue.peek();
-		
-		if(min.getFirstCPU() > premetidProcess.peek().priority )
+
+		if (min.getFirstCPU() > premetidProcess.peek().priority)
 			min = premetidProcess.peek().getData();
-		
-	
+
 		return min;
-		
+
 	}
 
-	
 	public Queue<PCB> getReadyQueue() {
 		return readyQueue;
 	}
@@ -188,6 +177,3 @@ public class CPU {
 	}
 
 }
-	
-	
-
