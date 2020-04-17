@@ -50,16 +50,16 @@ public class CPU {
 			process.setState(ProccessState.RUNNING);
 			process.CPUNumIncrement();
 			int cBurst = process.getFirstCPU();
-			int arrtime=process.getarrtime();
+			
 			for (int i = 0; i < cBurst ; i++)
 
 			{
-				if(arrtime<readyQueue.peek().getarrtime()) 
+				if(	Clock.time<readyQueue.peek().getarrtime()) 
 				{
 				
 				++Clock.time;
 				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
-				arrtime++;
+				
 				}
 				else
 					break;
