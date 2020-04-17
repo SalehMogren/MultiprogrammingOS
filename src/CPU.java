@@ -107,4 +107,40 @@ public class CPU {
 
 	}
 }
+	
+	public Queue<PCB> getReadyQueue() {
+		return readyQueue;
+	}
+
+	public void setReadyQueue(Queue<PCB> readyQueue) {
+		this.readyQueue = readyQueue;
+	}
+
+	public RAM getRam() {
+		return ram;
+	}
+
+	public void setRam(RAM ram) {
+		this.ram = ram;
+	}
+
+	public int getTotalCpuTime() {
+		return totoaCPUTime;
+	}
+
+	public void setTotalCpuTime(int totalCpuTime) {
+		this.totoaCPUTime = totalCpuTime;
+	}
+
+	public int getTotalIoTime() {
+		return totalIOtime;
+	}
+
+	public void setTotalIoTime(int totalIoTime) {
+		this.totalIOtime = totalIoTime;
+	}
+
 }
+	
+	
+
