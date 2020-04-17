@@ -196,7 +196,9 @@ public class PCB {
 	public void setState(ProccessState state) {
 		this.state = state;
 	}
-	
+	public int getFirstIO() {
+		return Cycles.peek().getIOBurst();
+	}
 	
 	
 }
