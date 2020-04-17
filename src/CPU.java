@@ -45,26 +45,29 @@ public class CPU {
 			
 			
 			
-			PCB process = readyQueue.serve();
+			PCB process = minProcess(readyQueue.serve());
 			
 			process.setState(ProccessState.RUNNING);
 			process.CPUNumIncrement();
 			int cBurst = process.getFirstCPU();
 			int arrtime=process.getarrtime();
-			for (int i = 0; i < cBurst ; i++)
+			for (int i = 0; i < cBurst && checkArr_Burst(readyQueue.serve()) ; i++)
 
 			{
-				if(arrtime<readyQueue.peek().getarrtime()) 
+				if(arrtime<Clock.time) 
 				{
 				
 				++Clock.time;
 				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 				arrtime++;
+				
+				
 				}
-				else
+				else {
+					++Clock.time;
 					break;
 			}
-		
+			}
 			// out of the loop because of a new short process
  			if(process.getFirstCPU()!=0) {
 				
@@ -107,4 +110,15 @@ public class CPU {
 
 	}
 }
+	//this method checkes if the next Process meet the araival condition and min process
+	// if it meat the arival but not the min process then its add to PQ premitedProcess
+	private boolean checkArr_Burst(PCB serve) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	//this method compare between the next Proccess in the readyQueu and PQ and returns the minimum Process
+	private PCB minProcess(PCB serve) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
