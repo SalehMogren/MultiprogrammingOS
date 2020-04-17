@@ -32,7 +32,7 @@ public class RAM {
 		finishedPCB = new Queue<PCB>();
 		
 		this.availbleSIZE=578;
-		
+		//test
 
 	}
 	// Method To Load from the file to Queue
