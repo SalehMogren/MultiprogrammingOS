@@ -55,7 +55,7 @@ public class CPU {
 			
 			{
 
-				if(arrtime<Clock.time) 
+				if(checkArr_Burst(process)) 
 
 				{
 				
@@ -120,12 +120,28 @@ public class CPU {
 	//this method checkes if the next Process meet the araival condition and min process
 	// if it meat the arival but not the min process then its add to PQ premitedProcess
 	private boolean checkArr_Burst(PCB serve) {
-		// TODO Auto-generated method stub
+		PCB next=readyQueue.peek();
+		if(Clock.time >= next.getarrtime() ) {
+			
+		if(serve.getFirstCPU()>next.getFirstCPU()) {
+			
+			premetidProcess.enqueue(serve, serve.getFirstCycle().getCpuBurst());
+			return false;
+		}
+		return true;
+		
+		}
+		
+		
+	
 		return false;
 		
 	}
 	//this method compare between the next Proccess in the readyQueu and PQ and returns the minimum Process
 	private PCB minProcess(PCB serve) {
+		
+	
+		
 		// TODO Auto-generated method stub
 		return null;
 	}
