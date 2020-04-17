@@ -52,22 +52,28 @@ public class CPU {
 			int cBurst = process.getFirstCPU();
 			int arrtime=process.getarrtime();
 			for (int i = 0; i < cBurst && checkArr_Burst(readyQueue.serve()) ; i++)
-
+			
 			{
+
 				if(arrtime<Clock.time) 
+
 				{
 				
 				++Clock.time;
 				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
+
 				arrtime++;
 				
+
+
 				
 				}
 				else {
 					++Clock.time;
 					break;
+				}
 			}
-			}
+			
 			// out of the loop because of a new short process
  			if(process.getFirstCPU()!=0) {
 				
@@ -106,10 +112,11 @@ public class CPU {
  					if (ram.isEmpty()) {
  						break;
  					}
-
+		}
 
 	}
-}
+
+
 	//this method checkes if the next Process meet the araival condition and min process
 	// if it meat the arival but not the min process then its add to PQ premitedProcess
 	private boolean checkArr_Burst(PCB serve) {
@@ -122,4 +129,41 @@ public class CPU {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	public Queue<PCB> getReadyQueue() {
+		return readyQueue;
+	}
+
+	public void setReadyQueue(Queue<PCB> readyQueue) {
+		this.readyQueue = readyQueue;
+	}
+
+	public RAM getRam() {
+		return ram;
+	}
+
+	public void setRam(RAM ram) {
+		this.ram = ram;
+	}
+
+	public int getTotalCpuTime() {
+		return totoaCPUTime;
+	}
+
+	public void setTotalCpuTime(int totalCpuTime) {
+		this.totoaCPUTime = totalCpuTime;
+	}
+
+	public int getTotalIoTime() {
+		return totalIOtime;
+	}
+
+	public void setTotalIoTime(int totalIoTime) {
+		this.totalIOtime = totalIoTime;
+	}
+
 }
+	
+	
+
