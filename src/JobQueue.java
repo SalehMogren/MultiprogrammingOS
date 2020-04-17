@@ -52,11 +52,12 @@ public class JobQueue {
 				
 				String[] PCBInfo = sCurrentLine.split("	");		
 				pid = Integer.parseInt(PCBInfo[0]); // Name of Process
-				PCB pcb1 = new PCB(pid);
+				Artime = Math.abs(Integer.parseInt(PCBInfo[4]))*-1; //artime in (-)
+				PCB pcb1 = new PCB(pid,Artime);
 				cpuBurst = Integer.parseInt(PCBInfo[1]);
 				memory = Math.abs(Integer.parseInt(PCBInfo[2])); //First memory should be positive
 				IOBurst = Integer.parseInt(PCBInfo[3]);
-				Artime = Math.abs(Integer.parseInt(PCBInfo[4]))*-1; //artime in (-)
+				
 				pcb1.addCycle(cpuBurst, memory, IOBurst);// Cycle 1
 				cpuBurst = Integer.parseInt(PCBInfo[5]);
 				memory = Integer.parseInt(PCBInfo[6]);
@@ -147,6 +148,7 @@ public class JobQueue {
 		int n = copy.length();
 		for(int i = 0; i<n; i++)
 			proccessQueeu.enqueue(copy.serve().data);
+		
 		return proccessQueeu;
 		
 	}

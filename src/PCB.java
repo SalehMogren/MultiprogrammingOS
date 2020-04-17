@@ -19,6 +19,7 @@ public class PCB {
 	private int CPUendTime;
 	private int readyQueueTime; // number of times the process has been in ready queue
 	private int endTime;
+	private int arrtime;
 	private ProccessState state;
 	
 
@@ -33,11 +34,13 @@ public class PCB {
 		this.CPUendTime = 0;
 		this.readyQueueTime = 0;
 		this.endTime= 0;
+		this.arrtime=0;
 
 	}
 
-	public PCB(int pid) {
+	public PCB(int pid ,int arrtime) {
 		this.pid = pid;
+		this.arrtime=arrtime;
 		this.Cycles = new Queue<Cycle>();
 		this.CPUNum = 0;
 		this.CPUSum = 0;
@@ -47,7 +50,7 @@ public class PCB {
 		this.CPUendTime = 0;
 		this.readyQueueTime = 0;
 		this.endTime = 0;
-
+		
 	}
 	// add process cycles in queue
 	public void addCycle(int cpuBurst, int memory, int IOBurst) {
@@ -128,6 +131,12 @@ public class PCB {
 	public int getIOSum() {
 		return IOSum;
 	}
+	public int getarrtime() {
+		return arrtime;
+	}
+	public void setarrtime(int arrtime) {
+		this.arrtime=arrtime;
+	}
 
 	public int getFirstMemory() {
 		return Cycles.peek().getMemory();
@@ -196,6 +205,7 @@ public class PCB {
 	public void setState(ProccessState state) {
 		this.state = state;
 	}
+	
 	
 	
 	

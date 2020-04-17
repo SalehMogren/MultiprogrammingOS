@@ -36,15 +36,22 @@ public class RAM {
 
 	}
 	// Method To Load from the file to Queue
-	public PQ<PCB> loadToReady() {
+	public Queue<PCB> loadToReady() {
+		PQ<PCB> copy = this.readyQueue;
+		Queue<PCB> proccessQueeu = new Queue<PCB>();
+		
+		int n = copy.length();
+		for(int i = 0; i<n; i++)
+			proccessQueeu.enqueue(copy.serve().data);
 
 		if (jobQueue.length() == 0 && waitingQueue.length() == 0)
-			return this.readyQueue;
+			return proccessQueeu;
 
 		checkWaitingQueue();
 
 		while (jobQueue.length() != 0 && availbleSIZE != 0) {
 			PCB proccess = jobQueue.serve();
+			
 
 			// if it can fit in the ready queue
 			if (proccess.getFirstMemory() <= availbleSIZE) {
@@ -52,7 +59,7 @@ public class RAM {
 				if (proccess.getReadyQueueTime() == 0)
 					proccess.setReadyQueueTime(Clock.time);
 				proccess.setState(ProccessState.READY);
-				readyQueue.enqueue(proccess, proccess.getFirstCPU());
+				readyQueue.enqueue(proccess, proccess.getarrtime());
 			}
 			// if its not fitting in the ready queue add to waiting queue
 			else {
@@ -62,8 +69,14 @@ public class RAM {
 			}
 			++Clock.time;
 		}
+		
+		PQ<PCB> copy2 = this.readyQueue;
+		Queue<PCB> proccessQueeu2 = new Queue<PCB>();
+		int m = copy.length();
+		for(int i = 0; i<m; i++)
+			proccessQueeu2.enqueue(copy2.serve().data);
 
-		return this.readyQueue;
+		return proccessQueeu2;
 	}
 
 	private void checkWaitingQueue() {
@@ -80,7 +93,7 @@ public class RAM {
 				proccess.setState(ProccessState.READY);
 				if (proccess.getReadyQueueTime() == 0)
 					proccess.setReadyQueueTime(Clock.time);
-				readyQueue.enqueue(proccess, proccess.getFirstCPU());
+				readyQueue.enqueue(proccess, proccess.getarrtime());
 			} else {
 				copy.enqueue(proccess);
 			}
