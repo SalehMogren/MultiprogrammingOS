@@ -10,53 +10,101 @@ public class CPU {
 	private RAM ram;
 	int totoaCPUTime, totalIOtime = 0;
 	Queue<PCB> readyQueue;
+	private Queue<PCB> waitingQueue;
 	PQ<PCB> premetidProcess;
 
 	// Based on the arrival time , we execute first process then check the
 	//
 	void startCpu() {
 		ram = new RAM();
+		readyQueue = ram.loadToReady();
+		waitingQueue = ram.getWaitingQueue();
+	
+		int m = 0; //Number of waiting processes in waiting queue
 
 		while (true) {
+			m = waitingQueue.length();
 			
 		// general way
+			
+			
+			if (Clock.time % 100 == 0 || readyQueue.length() == 0) {
+				// you should reactivate job scheduler
+				readyQueue = ram.loadToReady(); // new processes from the Job queue
+														
+
+			}
+			if (readyQueue.length() == 0 && m != 0) {
+				Clock.time++;
+				continue;
+			}
+			
+			if (readyQueue.length() == 0 && m == 0) {
+				return;
+			}
+			
+			
+			
 			PCB process = readyQueue.serve();
+			
 			process.setState(ProccessState.RUNNING);
 			process.CPUNumIncrement();
 			int cBurst = process.getFirstCPU();
-			for (int i = 0; i < cBurst && readyQueue.peek().getFirstCycle().getCpuBurst() > cBurst; i++)
+			int arrtime=process.getarrtime();
+			for (int i = 0; i < cBurst ; i++)
 
 			{
+				if(arrtime<readyQueue.peek().getarrtime()) 
+				{
+				
 				++Clock.time;
 				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
+				arrtime++;
+				}
+				else
+					break;
 			}
+		
 			// out of the loop because of a new short process
+ 			if(process.getFirstCPU()!=0) {
+				
 			if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
 				premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
 				continue;
 			}
-			// waiting IO
-			if (process.getFirstCycle().getCpuBurst() == 0) {
-				int ioBurst = process.getFirstCycle().getIOBurst();
-				for (int p = 0; p < ioBurst; p++) {
-					process.setState(ProccessState.WAITING);
-					++Clock.time;
-					process.getFirstCycle().setIOBurst(process.getFirstCycle().getIOBurst() - 1);
-				}
-				process.IONumIncrement();
-			}
+			
 			//process finished CPU and IO bursts
 				// might be null poitner exception
-			if(process.getFirstCPU()==0&&process.getFirstIO()==0) {
-				Cycle newCycle = process.serveCycle();
-				process.getFirstCycle().setMemory(process.getFirstMemory()+newCycle.getMemory());
-				process.setState(ProccessState.READY);
-				
-				// add process back the readyQueue with(addToReadQueue)
-			}
+		
 			
 			//process finished (add indicator in PCB for when process has no more cycles)
-		}
+ 			}
+ 		// waiting IO
+ 					if (process.getFirstCycle().getCpuBurst() == 0) {
+ 						int ioBurst = process.getFirstCycle().getIOBurst();
+ 						for (int p = 0; p < ioBurst; p++) {
+ 							process.setState(ProccessState.WAITING);
+ 							++Clock.time;
+ 							process.getFirstCycle().setIOBurst(process.getFirstCycle().getIOBurst() - 1);
+ 						}
+ 						process.IONumIncrement();
+ 					}
+ 					
+ 					if(process.getFirstCPU()==0&&process.getFirstIO()==0) {
+ 						Cycle newCycle = process.serveCycle();
+ 						process.getFirstCycle().setMemory(process.getFirstMemory()+newCycle.getMemory());
+ 						process.setState(ProccessState.READY);
+ 						
+ 						
+ 						// add process back the readyQueue with(addToReadQueue)
+ 						ram.addToReadyQueue(process);
+ 					}
+ 					
+ 					if (ram.isEmpty()) {
+ 						break;
+ 					}
+
 
 	}
+}
 }

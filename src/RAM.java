@@ -176,7 +176,7 @@ public class RAM {
 						
 						process.setReadyQueueTime(Clock.time);
 						}
-					readyQueue.enqueue(process, process.getFirstCPU());
+					readyQueue.enqueue(process, process.getarrtime());
 				
 
 				} else {
