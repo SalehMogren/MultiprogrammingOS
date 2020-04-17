@@ -61,8 +61,10 @@ public class CPU {
 				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 				
 				}
-				else
+				else {
+					++Clock.time;
 					break;
+				}
 			}
 		
 			// out of the loop because of a new short process
