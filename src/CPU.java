@@ -127,7 +127,17 @@ public class CPU {
 	//this method compare between the next Proccess in the readyQueu and PQ and returns the minimum Process
 	private PCB minProcess(PCB serve) {
 		// TODO Auto-generated method stub
-		return null;
+		PCB min = serve;
+		
+		if ( min.getFirstCPU() > readyQueue.peek().getFirstCPU()) 
+			min = readyQueue.peek();
+		
+		if(min.getFirstCPU() > premetidProcess.peek().priority )
+			min = premetidProcess.peek().getData();
+		
+	
+		return min;
+		
 	}
 
 	
