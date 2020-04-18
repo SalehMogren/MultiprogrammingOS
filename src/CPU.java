@@ -8,7 +8,7 @@
  */
 public class CPU {
 	private RAM ram;
-	int totoaCPUTime, totalIOtime = 0;
+	int totoalCPUTime, totalIOtime = 0;
 	Queue<PCB> readyQueue;
 	private Queue<PCB> waitingQueue;
 	PQ<PCB> premetidProcess;
@@ -19,12 +19,12 @@ public class CPU {
 		ram = new RAM();
 		readyQueue = ram.loadToReady();
 		waitingQueue = ram.getWaitingQueue();
-
+		premetidProcess = new PQ<PCB>();
 		int m = 0; // Number of waiting processes in waiting queue
 
 		while (true) {
 			m = waitingQueue.length();
-
+			int currentTime = Clock.time;
 			// general way
 
 			if (Clock.time % 100 == 0 || readyQueue.length() == 0) {
@@ -46,39 +46,29 @@ public class CPU {
 			process.setState(ProccessState.RUNNING);
 			process.CPUNumIncrement();
 			int cBurst = process.getFirstCPU();
-			int arrtime = process.getarrtime();
+		
 			for (int i = 0; i < cBurst && checkArr_Burst(process); i++)
-
 			{
-
-				if (checkArr_Burst(process))
-
-				{
 
 					++Clock.time;
 					process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 
-					arrtime++;
-
-				} else {
-					++Clock.time;
-					break;
-				}
+				
 			}
+			if(Clock.time>=process.getarrtime())
+				totoalCPUTime+= process.getFirstCPU();
 
 			// out of the loop because of a new short process
-			if (process.getFirstCPU() != 0) {
-
-				if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
+			if(process.getFirstCPU() != 0) {
+				if(Clock.time>=process.getarrtime())
+					if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
+					process.setState(ProccessState.WAITING);
 					premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
 					continue;
 				}
-
-				// process finished CPU and IO bursts
-				// might be null poitner exception
-
-				// process finished (add indicator in PCB for when process has no more cycles)
 			}
+			
+				
 			// waiting IO
 			if (process.getFirstCycle().getCpuBurst() == 0) {
 				int ioBurst = process.getFirstCycle().getIOBurst();
@@ -91,6 +81,7 @@ public class CPU {
 			}
 
 			if (process.getFirstCPU() == 0 && process.getFirstIO() == 0) {
+				if(process.getIndicator()!=0) {
 				Cycle newCycle = process.serveCycle();
 				process.getFirstCycle().setMemory(process.getFirstMemory() + newCycle.getMemory());
 				process.setState(ProccessState.READY);
@@ -98,7 +89,19 @@ public class CPU {
 				// add process back the readyQueue with(addToReadQueue)
 				ram.addToReadyQueue(process);
 			}
-
+			}
+			
+			//process finished 
+			if(process.getIndicator()==0) {
+				process.setState(ProccessState.TERMINATED);
+				process.setEndTime(Clock.time);
+				ram.addToFinshedQueue(process);
+			}
+				
+			
+			if(currentTime==Clock.time)
+				++Clock.time;
+			
 			if (ram.isEmpty()) {
 				break;
 			}
@@ -110,20 +113,22 @@ public class CPU {
 	// process
 	// if it meat the arrival but not the min process then its add to PQ
 	// premitedProcess
-	private boolean checkArr_Burst(PCB serve) {
+	private boolean checkArr_Burst(PCB currentP) {
+		if(readyQueue.peek()!=null) {
 		PCB next = readyQueue.peek();
 		if (Clock.time >= next.getarrtime()) {
 
-			if (serve.getFirstCPU() > next.getFirstCPU()) {
+			if (currentP.getFirstCPU() > next.getFirstCPU()) {
 
-				premetidProcess.enqueue(serve, serve.getFirstCycle().getCpuBurst());
+				premetidProcess.enqueue(currentP, currentP.getFirstCycle().getCpuBurst());
 				return false;
 			}
 			return true;
 
 		}
-
 		return false;
+		}
+		return true;
 
 	}
 
@@ -136,8 +141,9 @@ public class CPU {
 
 		if (min.getFirstCPU() > readyQueue.peek().getFirstCPU())
 			min = readyQueue.peek();
-
-		if (min.getFirstCPU() > premetidProcess.peek().priority)
+		
+		if(premetidProcess.peek()!=null)
+			if (min.getFirstCPU() > premetidProcess.peek().priority)
 			min = premetidProcess.peek().getData();
 
 		return min;
@@ -161,11 +167,11 @@ public class CPU {
 	}
 
 	public int getTotalCpuTime() {
-		return totoaCPUTime;
+		return totoalCPUTime;
 	}
 
 	public void setTotalCpuTime(int totalCpuTime) {
-		this.totoaCPUTime = totalCpuTime;
+		this.totoalCPUTime = totalCpuTime;
 	}
 
 	public int getTotalIoTime() {

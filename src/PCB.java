@@ -20,6 +20,7 @@ public class PCB {
 	private int readyQueueTime; // number of times the process has been in ready queue
 	private int endTime;
 	private int arrtime;
+	private int indicator=0;
 	private ProccessState state;
 	
 
@@ -57,6 +58,7 @@ public class PCB {
 
 		Cycle c = new Cycle(cpuBurst, memory, IOBurst);
 		this.Cycles.enqueue(c);
+		setIndicator(getIndicator() + 1);
 	}
 	
 	public void printall() {
@@ -148,6 +150,7 @@ public class PCB {
 	}
 
 	public Cycle serveCycle() {
+		setIndicator(getIndicator() - 1);
 		return Cycles.serve();
 	}
 
@@ -208,6 +211,16 @@ public class PCB {
 	}
 	public int getFirstIO() {
 		return Cycles.peek().getIOBurst();
+	}
+
+	public int getIndicator() {
+		if(this.Cycles.peek()==null && this.getFirstCPU()==0 && this.getFirstIO()==0)
+			return 0;
+		return indicator;
+	}
+
+	public void setIndicator(int indicator) {
+		this.indicator = indicator;
 	}
 	
 	
