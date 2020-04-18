@@ -1,6 +1,16 @@
-/////////////////////////////// 0 Process were executed
+/////////////////////////////// 1 Process were executed
+-------------------------------------------------------------------------------
+The Process ID: 1
+Time it was loaded into the ready queue: 104
+Number of times it was in the CPU: 168
+Total time spent in the CPU: 168
+Number of times it was in the IO: 4
+Total time spent in the IO: 181
+Number of times it was waiting for memory: 0
+Time it terminated or was killed: 433
+Final state: TERMINATED
 
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-CPU Utilization is:60.53%
+CPU Utilization is:48.27%
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 

@@ -39,23 +39,28 @@ public class JobGenerator {
 //				ObjectOutputStream ofw = new ObjectOutputStream(fw);
 				fw.write("id\tcpu\tmemory\tio\tarTime\t");
 
-				for(int i = 0;i<5;i++) {
+				for(int i = 0;i<3;i++) {
 					fw.write("cpu\tmemory\tio\t");
 				}
 				fw.newLine();
-				for(int i=0;i<3;i++) {
+				for(int i=0;i<100;i++) {
 					fw.write(i+1+"\t");												 //pid
 					fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
-					fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
+					fw.write(ThreadLocalRandom.current().nextInt(5, 20)+"\t");     //Memory burst
 					fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst
 
 					fw.write(ThreadLocalRandom.current().nextInt(1, 81)+"\t");   	//arrival time 
 					
 					int n =ThreadLocalRandom.current().nextInt(2, 4) ;
-					for (int j=0;j<5;j++) {
+					for (int j=0;j<3;j++) {
+						
+							
 						fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
-						fw.write(ThreadLocalRandom.current().nextInt(-100, 201)+"\t");     //Memory burst ( add negative )
-						fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burset 
+						if(j%2>0)
+						fw.write(ThreadLocalRandom.current().nextInt(-20, -5)+"\t");     //Memory burst ( add negative )
+						else
+							fw.write(ThreadLocalRandom.current().nextInt(5, 20)+"\t");
+						fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burst 
 					}
 					fw.newLine();
 				}

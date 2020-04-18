@@ -36,6 +36,8 @@ public class OS {
 		Queue<PCB> jobs = cpu1.getRam().getFinishedPCB();
 		
 		///for test,delete it later
+		System.out.println(cpu1.getRam().getReadyQueue().length());
+		System.out.println(cpu1.premetidProcess.length());
 		System.out.println(jobs.length());
 		////////
 		

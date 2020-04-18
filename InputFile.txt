@@ -1,4 +1,4 @@
-id	cpu	memory	io	arTime	cpu	memory	io	cpu	memory	io	cpu	memory	io	cpu	memory	io	cpu	memory	io	
-1	87	68	50	19	93	94	42	16	-46	45	13	33	40	79	190	26	33	-68	42	
-2	48	170	25	48	29	45	39	99	-72	32	52	-81	23	88	71	23	55	150	32	
-3	83	83	31	27	37	179	25	43	154	54	26	-14	50	60	-77	47	79	-75	50	
+id	cpu	memory	io	arTime	cpu	memory	io	cpu	memory	io	cpu	memory	io	
+1	38	9	59	7	21	7	55	41	-17	30	68	19	37	
+2	41	9	36	21	94	9	51	40	-14	59	34	8	22	
+3	70	7	58	63	78	10	36	44	-14	51	78	13	43	
