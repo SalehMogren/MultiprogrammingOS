@@ -55,9 +55,9 @@ public class JobQueue {
 			while ((sCurrentLine = br.readLine()) != null ) {
 
 				
-				String[] PCBInfo = sCurrentLine.split("	");		
+				String[] PCBInfo = sCurrentLine.split("\t");		
 				pid = Integer.parseInt(PCBInfo[0]); // Name of Process
-				Artime = Math.abs(Integer.parseInt(PCBInfo[4]))*-1; //artime in (-)
+				Artime = Math.abs(Integer.parseInt(PCBInfo[4])); //artime in (-)
 				PCB pcb1 = new PCB(pid,Artime);
 				cpuBurst = Integer.parseInt(PCBInfo[1]);
 				memory = Math.abs(Integer.parseInt(PCBInfo[2])); //First memory should be positive

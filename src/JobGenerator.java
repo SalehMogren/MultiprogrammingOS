@@ -52,7 +52,7 @@ public class JobGenerator {
 					fw.write(ThreadLocalRandom.current().nextInt(1, 81)+"\t");   	//arrival time 
 					
 					int n =ThreadLocalRandom.current().nextInt(2, 4) ;
-					for (int j=0;j<n;j++) {
+					for (int j=0;j<5;j++) {
 						fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
 						fw.write(ThreadLocalRandom.current().nextInt(-100, 201)+"\t");     //Memory burst ( add negative )
 						fw.write(ThreadLocalRandom.current().nextInt(20, 61)+"\t");		//io burset 

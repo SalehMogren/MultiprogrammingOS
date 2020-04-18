@@ -216,7 +216,7 @@ public class PCB {
 	public int getIndicator() {
 //		if(this.Cycles.peek()==null && this.getFirstCPU()==0 && this.getFirstIO()==0)
 //			return 0;
-		return indicator;
+		return this.Cycles.length();
 	}
 
 	

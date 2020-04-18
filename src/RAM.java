@@ -70,12 +70,27 @@ public class RAM {
 			++Clock.time;
 		}
 		
-		PQ<PCB> copy2 = this.readyQueue;
+//		PQ<PCB> copy2 = new PQ<PCB>();;
+//		int x = readyQueue.length();
+//		for (int i =0;i<x;i++) {
+//			readyQueue
+//		}
+//			
 		Queue<PCB> proccessQueeu2 = new Queue<PCB>();
+		Queue<PQNode<PCB>> proccessQueeu1 = new Queue<PQNode<PCB>>();
+		
 		int m = copy.length();
-		for(int i = 0; i<m; i++)
-			proccessQueeu2.enqueue(copy2.serve().data);
-
+		for(int i = 0; i<m; i++) {
+			PQNode<PCB> p1 = readyQueue.serve();
+			
+			proccessQueeu2.enqueue(p1.data);
+			proccessQueeu1.enqueue(p1);
+		}
+		int x = proccessQueeu1.length();
+		for(int i=0;i<x;i++) {
+			PQNode<PCB> pTemp= proccessQueeu1.serve();
+			readyQueue.enqueue(pTemp.data,pTemp.priority);
+		}
 		return proccessQueeu2;
 	}
 

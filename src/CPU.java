@@ -41,67 +41,72 @@ public class CPU {
 				return;
 			}
 
-			PCB process = minProcess(readyQueue.serve());
+//			PCB process1= readyQueue.peek();
 
-			process.setState(ProccessState.RUNNING);
-			process.CPUNumIncrement();
-			int cBurst = process.getFirstCPU();
-		
-			for (int i = 0; i < cBurst && checkArr_Burst(process); i++)
-			{
+			PCB process = minProcess();
+//			if(process1==process)
+//				returnToReadyQueue(process1);
+			if (process != null) {
+				int cBurst = process.getFirstCPU();
+
+				for (int i = 0; i < cBurst && checkArr_Burst(process); i++) {
+
+					process.setState(ProccessState.RUNNING);
+					process.CPUNumIncrement();
 
 					++Clock.time;
-					process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
+					// null Pointer here
+					process.getCycles().peek().setCpuBurst(process.getCycles().peek().getCpuBurst() - 1);
+//				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 
-				
-			}
-			if(Clock.time>=process.getarrtime())
-				totoalCPUTime+= process.getFirstCPU();
+				}
+				if (Clock.time >= process.getarrtime())
+					totoalCPUTime += process.getFirstCPU();
 
-			// out of the loop because of a new short process
-			if(process.getFirstCPU() != 0) {
-				if(Clock.time>=process.getarrtime())
-					if (readyQueue.peek().getFirstCycle().getCpuBurst() < cBurst) {
-					process.setState(ProccessState.WAITING);
-					premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
+				// out of the loop because of a new short process
+				if (process.getFirstCPU() != 0) {
+					if (Clock.time >= process.getarrtime())
+						if (readyQueue.peek().getFirstCPU() < cBurst) {
+							process.setState(ProccessState.WAITING);
+//						premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
+							continue;
+						}
+				}
+				Cycle newCycle = new Cycle();
+				// waiting IO
+				if (process.getFirstCPU() == 0) {
+					int ioBurst = process.getCycles().peek().getIOBurst();
+					for (int p = 0; p < ioBurst; p++) {
+						process.setState(ProccessState.WAITING);
+						++Clock.time;
+						process.getCycles().peek().setIOBurst(process.getCycles().peek().getIOBurst() - 1);
+					}
+					newCycle = process.getFirstCycle();
+					process.IONumIncrement();
+				}
+				// process finished
+				if (process.getIndicator() == 0) {
+					process.setState(ProccessState.TERMINATED);
+					process.setEndTime(Clock.time);
+					ram.addToFinshedQueue(process);
 					continue;
 				}
-			}
-			
-				
-			// waiting IO
-			if (process.getFirstCycle().getCpuBurst() == 0) {
-				int ioBurst = process.getFirstCycle().getIOBurst();
-				for (int p = 0; p < ioBurst; p++) {
-					process.setState(ProccessState.WAITING);
-					++Clock.time;
-					process.getFirstCycle().setIOBurst(process.getFirstCycle().getIOBurst() - 1);
+
+				if (process.getIndicator() != 0) {
+					if (process.getFirstCPU() == 0 && process.getFirstIO() == 0) {
+
+						process.getCycles().peek().setMemory(process.getFirstMemory() + newCycle.getMemory());
+						process.setState(ProccessState.READY);
+
+						// add process back the readyQueue with(addToReadQueue)
+						ram.addToReadyQueue(process);
+					}
 				}
-				process.IONumIncrement();
-			}
 
-			if (process.getFirstCPU() == 0 && process.getFirstIO() == 0) {
-				if(process.getIndicator()!=0) {
-				Cycle newCycle = process.serveCycle();
-				process.getFirstCycle().setMemory(process.getFirstMemory() + newCycle.getMemory());
-				process.setState(ProccessState.READY);
-
-				// add process back the readyQueue with(addToReadQueue)
-				ram.addToReadyQueue(process);
 			}
-			}
-			
-			//process finished 
-			if(process.getIndicator()==0) {
-				process.setState(ProccessState.TERMINATED);
-				process.setEndTime(Clock.time);
-				ram.addToFinshedQueue(process);
-			}
-				
-			
-			if(currentTime==Clock.time)
+			if (currentTime == Clock.time)
 				++Clock.time;
-			
+
 			if (ram.isEmpty()) {
 				break;
 			}
@@ -109,45 +114,80 @@ public class CPU {
 
 	}
 
+	private void returnToReadyQueue(PCB process1) {
+		// TODO Auto-generated method stub
+		Queue<PCB> q1 = new Queue<PCB>();
+
+		q1.enqueue(process1);
+		int x = readyQueue.length();
+		for (int i = 0; i < x; i++)
+			q1.enqueue(readyQueue.serve());
+
+		x = q1.length();
+		for (int i = 0; i < x; i++)
+			readyQueue.enqueue(q1.serve());
+
+	}
+
 	// this method checks if the next Process meet the arrival condition and min
+	//
 	// process
 	// if it meat the arrival but not the min process then its add to PQ
 	// premitedProcess
 	private boolean checkArr_Burst(PCB currentP) {
-		if(readyQueue.peek()!=null) {
-		PCB next = readyQueue.peek();
-		if (Clock.time >= next.getarrtime()) {
-			if(currentP.getIndicator()>0)
-			if (currentP.getFirstCPU() > next.getFirstCPU()) {
+		
+	if (Clock.time >= currentP.getarrtime()) {
+		if (readyQueue.length() > 0) {
+			PCB next = readyQueue.peek();
+			
+				if (Clock.time >= next.getarrtime()) {
+//			if(currentP.getIndicator()>0)
+					if (currentP.getFirstCPU() > next.getFirstCPU()) {
 
-				premetidProcess.enqueue(currentP, currentP.getFirstCycle().getCpuBurst());
-				return false;
+						premetidProcess.enqueue(currentP, currentP.getFirstCPU());
+						return false;
+					} else if (currentP.getFirstCPU() <= next.getFirstCPU()) {
+						next = readyQueue.serve();
+						premetidProcess.enqueue(next, next.getFirstCPU());
+
+						return true;
+					}
+				}
+
+				return true;
 			}
-			return true;
-
-		}
-		return false;
-		}
 		return true;
-
+	
+	}
+		return false;
 	}
 
 	// this method compare between the next Process in the readyQueu and PQ and
 	// returns the minimum Process
-	private PCB minProcess(PCB serve) {
-
-		// TODO Auto-generated method stub
-		PCB min = serve;
-
-		if (min.getFirstCPU() > readyQueue.peek().getFirstCPU())
+	// compare between premitedProcess and readyQueue process
+	// Special cases:
+	/*
+	 * - last elm in the readyQueue or Empty - not in the Clock Range -
+	 */
+	private PCB minProcess() {
+		PCB min = null;
+		if (readyQueue.length() > 0) {
 			min = readyQueue.peek();
-		
-		if(premetidProcess.peek()!=null)
-			if (min.getFirstCPU() > premetidProcess.peek().priority)
-			min = premetidProcess.peek().getData();
+//
+			if (Clock.time >= min.getarrtime())
+				min = readyQueue.serve();
 
-		return min;
+			if (premetidProcess.length() > 0) {
+				if (min.getFirstCPU() > premetidProcess.peek().priority)
+					min = premetidProcess.serve().getData();
+			}
 
+			return min;
+		}
+		if (premetidProcess.length() > 0)
+			min = premetidProcess.serve().data;
+
+		return null;
 	}
 
 	public Queue<PCB> getReadyQueue() {
