@@ -21,7 +21,12 @@ public class JobQueue {
 		BufferedReader br = null;
 		FileReader fr = null;
 		JobQueue = new PQ<PCB>();
-
+		try {
+			loadToJobQueue();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
