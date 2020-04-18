@@ -117,7 +117,7 @@ public class CPU {
 		if(readyQueue.peek()!=null) {
 		PCB next = readyQueue.peek();
 		if (Clock.time >= next.getarrtime()) {
-
+			if(currentP.getIndicator()>0)
 			if (currentP.getFirstCPU() > next.getFirstCPU()) {
 
 				premetidProcess.enqueue(currentP, currentP.getFirstCycle().getCpuBurst());

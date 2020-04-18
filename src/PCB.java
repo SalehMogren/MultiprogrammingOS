@@ -58,7 +58,7 @@ public class PCB {
 
 		Cycle c = new Cycle(cpuBurst, memory, IOBurst);
 		this.Cycles.enqueue(c);
-		setIndicator(getIndicator() + 1);
+		++indicator;
 	}
 	
 	public void printall() {
@@ -150,7 +150,7 @@ public class PCB {
 	}
 
 	public Cycle serveCycle() {
-		setIndicator(getIndicator() - 1);
+		--indicator;
 		return Cycles.serve();
 	}
 
@@ -214,14 +214,13 @@ public class PCB {
 	}
 
 	public int getIndicator() {
-		if(this.Cycles.peek()==null && this.getFirstCPU()==0 && this.getFirstIO()==0)
-			return 0;
+//		if(this.Cycles.peek()==null && this.getFirstCPU()==0 && this.getFirstIO()==0)
+//			return 0;
 		return indicator;
 	}
 
-	public void setIndicator(int indicator) {
-		this.indicator = indicator;
-	}
+	
+	
 	
 	
 	

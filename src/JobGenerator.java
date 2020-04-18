@@ -43,7 +43,7 @@ public class JobGenerator {
 					fw.write("cpu\tmemory\tio\t");
 				}
 				fw.newLine();
-				for(int i=0;i<100;i++) {
+				for(int i=0;i<3;i++) {
 					fw.write(i+1+"\t");												 //pid
 					fw.write(ThreadLocalRandom.current().nextInt(10, 101)+"\t");	//CPU burst
 					fw.write(ThreadLocalRandom.current().nextInt(5, 201)+"\t");     //Memory burst
