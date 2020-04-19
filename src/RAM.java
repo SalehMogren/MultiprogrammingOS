@@ -13,7 +13,7 @@ public class RAM {
 	public final static int SIZE = 680;
 	private int availbleSIZE;
 	private Queue<PCB> jobQueue;
-	private PQ<PCB> readyQueue;
+	public PQ<PCB> readyQueue;
 	private Queue<PCB> waitingQueue;
 	private Queue<PCB> finishedPCB;
 	private JobQueue startingObj;
@@ -36,7 +36,7 @@ public class RAM {
 
 	}
 	// Method To Load from the file to Queue
-	public Queue<PCB> loadToReady() {
+	public PQ<PCB> loadToReady() {
 		PQ<PCB> copy = this.readyQueue;
 		Queue<PCB> proccessQueeu = new Queue<PCB>();
 		
@@ -45,7 +45,7 @@ public class RAM {
 			proccessQueeu.enqueue(copy.serve().data);
 
 		if (jobQueue.length() == 0 && waitingQueue.length() == 0)
-			return proccessQueeu;
+			return readyQueue;
 
 		checkWaitingQueue();
 
@@ -91,7 +91,7 @@ public class RAM {
 			PQNode<PCB> pTemp= proccessQueeu1.serve();
 			readyQueue.enqueue(pTemp.data,pTemp.priority);
 		}
-		return proccessQueeu2;
+		return readyQueue;
 	}
 
 	private void checkWaitingQueue() {
