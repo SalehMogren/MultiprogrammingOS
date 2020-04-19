@@ -25,21 +25,13 @@ public class OS {
 		System.out.println("This program will simulate single core processer.");
 
 		RAM r1 = new RAM();
-		///for test,delete it later
-		Queue<PCB> jobs2 = r1.getJobQueue();
-		System.out.println(jobs2.length());
-		////////
 		
 		CPU cpu1 = new CPU();
 		cpu1.startCpu();
 		System.out.println("Cpu started");
 		Queue<PCB> jobs = cpu1.getRam().getFinishedPCB();
 		
-		///for test,delete it later
-		System.out.println(cpu1.getRam().getReadyQueue().length());
-		System.out.println(cpu1.premetidProcess.length());
-		System.out.println(jobs.length());
-		////////
+		
 		
 		
 		
@@ -93,6 +85,8 @@ public class OS {
 				WriteFileBuffer.write("Total time spent in the IO: " + b.getIOSum()  );
 				WriteFileBuffer.newLine();
 				WriteFileBuffer.write("Number of times it was waiting for memory: " + b.getWaitNum()  );
+				WriteFileBuffer.newLine();
+				WriteFileBuffer.write("Number of times it was preempted: " + b.getNumOfPrem()  );
 				WriteFileBuffer.newLine();
 				WriteFileBuffer.write("Time it terminated or was killed: " + b.getEndTime()  );
 				WriteFileBuffer.newLine();

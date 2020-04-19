@@ -7,6 +7,7 @@ Total time spent in the CPU: 14
 Number of times it was in the IO: 1
 Total time spent in the IO: 25
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -17,6 +18,7 @@ Total time spent in the CPU: 11
 Number of times it was in the IO: 1
 Total time spent in the IO: 35
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -27,6 +29,7 @@ Total time spent in the CPU: 12
 Number of times it was in the IO: 1
 Total time spent in the IO: 39
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -37,6 +40,7 @@ Total time spent in the CPU: 18
 Number of times it was in the IO: 1
 Total time spent in the IO: 52
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -47,6 +51,7 @@ Total time spent in the CPU: 26
 Number of times it was in the IO: 1
 Total time spent in the IO: 60
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -57,6 +62,7 @@ Total time spent in the CPU: 27
 Number of times it was in the IO: 1
 Total time spent in the IO: 26
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -67,6 +73,7 @@ Total time spent in the CPU: 15
 Number of times it was in the IO: 1
 Total time spent in the IO: 34
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -77,6 +84,7 @@ Total time spent in the CPU: 23
 Number of times it was in the IO: 1
 Total time spent in the IO: 44
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -87,6 +95,7 @@ Total time spent in the CPU: 46
 Number of times it was in the IO: 1
 Total time spent in the IO: 51
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -97,6 +106,7 @@ Total time spent in the CPU: 46
 Number of times it was in the IO: 1
 Total time spent in the IO: 34
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -107,6 +117,7 @@ Total time spent in the CPU: 143
 Number of times it was in the IO: 4
 Total time spent in the IO: 144
 Number of times it was waiting for memory: 0
+Number of times it was preempted: 0
 Time it terminated or was killed: 3441
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -117,6 +128,7 @@ Total time spent in the CPU: 47
 Number of times it was in the IO: 1
 Total time spent in the IO: 28
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -127,6 +139,7 @@ Total time spent in the CPU: 12
 Number of times it was in the IO: 1
 Total time spent in the IO: 38
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -137,6 +150,7 @@ Total time spent in the CPU: 48
 Number of times it was in the IO: 1
 Total time spent in the IO: 44
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -147,6 +161,7 @@ Total time spent in the CPU: 53
 Number of times it was in the IO: 1
 Total time spent in the IO: 60
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -157,6 +172,7 @@ Total time spent in the CPU: 44
 Number of times it was in the IO: 1
 Total time spent in the IO: 54
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -167,6 +183,7 @@ Total time spent in the CPU: 32
 Number of times it was in the IO: 1
 Total time spent in the IO: 43
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -177,6 +194,7 @@ Total time spent in the CPU: 0
 Number of times it was in the IO: 0
 Total time spent in the IO: 0
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -187,6 +205,7 @@ Total time spent in the CPU: 0
 Number of times it was in the IO: 0
 Total time spent in the IO: 0
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -197,6 +216,7 @@ Total time spent in the CPU: 62
 Number of times it was in the IO: 1
 Total time spent in the IO: 31
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -207,6 +227,7 @@ Total time spent in the CPU: 64
 Number of times it was in the IO: 1
 Total time spent in the IO: 31
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -217,6 +238,7 @@ Total time spent in the CPU: 21
 Number of times it was in the IO: 1
 Total time spent in the IO: 28
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -227,6 +249,7 @@ Total time spent in the CPU: 66
 Number of times it was in the IO: 1
 Total time spent in the IO: 59
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -237,6 +260,7 @@ Total time spent in the CPU: 48
 Number of times it was in the IO: 1
 Total time spent in the IO: 24
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -247,6 +271,7 @@ Total time spent in the CPU: 73
 Number of times it was in the IO: 1
 Total time spent in the IO: 38
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -257,6 +282,7 @@ Total time spent in the CPU: 32
 Number of times it was in the IO: 1
 Total time spent in the IO: 45
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -267,6 +293,7 @@ Total time spent in the CPU: 75
 Number of times it was in the IO: 1
 Total time spent in the IO: 51
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -277,6 +304,7 @@ Total time spent in the CPU: 79
 Number of times it was in the IO: 1
 Total time spent in the IO: 57
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -287,6 +315,7 @@ Total time spent in the CPU: 79
 Number of times it was in the IO: 1
 Total time spent in the IO: 45
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -297,6 +326,7 @@ Total time spent in the CPU: 15
 Number of times it was in the IO: 1
 Total time spent in the IO: 34
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -307,6 +337,7 @@ Total time spent in the CPU: 43
 Number of times it was in the IO: 1
 Total time spent in the IO: 23
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -317,6 +348,7 @@ Total time spent in the CPU: 74
 Number of times it was in the IO: 1
 Total time spent in the IO: 32
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -327,6 +359,7 @@ Total time spent in the CPU: 36
 Number of times it was in the IO: 1
 Total time spent in the IO: 39
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -337,6 +370,7 @@ Total time spent in the CPU: 82
 Number of times it was in the IO: 1
 Total time spent in the IO: 53
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -347,6 +381,7 @@ Total time spent in the CPU: 82
 Number of times it was in the IO: 1
 Total time spent in the IO: 45
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -357,6 +392,7 @@ Total time spent in the CPU: 203
 Number of times it was in the IO: 4
 Total time spent in the IO: 194
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 13726
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -367,6 +403,7 @@ Total time spent in the CPU: 29
 Number of times it was in the IO: 1
 Total time spent in the IO: 23
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -377,6 +414,7 @@ Total time spent in the CPU: 64
 Number of times it was in the IO: 1
 Total time spent in the IO: 57
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -387,6 +425,7 @@ Total time spent in the CPU: 69
 Number of times it was in the IO: 1
 Total time spent in the IO: 59
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -397,6 +436,7 @@ Total time spent in the CPU: 23
 Number of times it was in the IO: 1
 Total time spent in the IO: 48
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -407,6 +447,7 @@ Total time spent in the CPU: 84
 Number of times it was in the IO: 1
 Total time spent in the IO: 36
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -417,6 +458,7 @@ Total time spent in the CPU: 83
 Number of times it was in the IO: 1
 Total time spent in the IO: 22
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -427,6 +469,7 @@ Total time spent in the CPU: 59
 Number of times it was in the IO: 1
 Total time spent in the IO: 41
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -437,6 +480,7 @@ Total time spent in the CPU: 87
 Number of times it was in the IO: 1
 Total time spent in the IO: 56
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -447,6 +491,7 @@ Total time spent in the CPU: 80
 Number of times it was in the IO: 1
 Total time spent in the IO: 57
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -457,6 +502,7 @@ Total time spent in the CPU: 88
 Number of times it was in the IO: 1
 Total time spent in the IO: 55
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -467,6 +513,7 @@ Total time spent in the CPU: 304
 Number of times it was in the IO: 4
 Total time spent in the IO: 153
 Number of times it was waiting for memory: 0
+Number of times it was preempted: 0
 Time it terminated or was killed: 18465
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -477,6 +524,7 @@ Total time spent in the CPU: 11
 Number of times it was in the IO: 1
 Total time spent in the IO: 21
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -487,6 +535,7 @@ Total time spent in the CPU: 46
 Number of times it was in the IO: 1
 Total time spent in the IO: 55
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -497,6 +546,7 @@ Total time spent in the CPU: 55
 Number of times it was in the IO: 1
 Total time spent in the IO: 54
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -507,6 +557,7 @@ Total time spent in the CPU: 86
 Number of times it was in the IO: 1
 Total time spent in the IO: 38
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -517,6 +568,7 @@ Total time spent in the CPU: 135
 Number of times it was in the IO: 3
 Total time spent in the IO: 102
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -527,6 +579,7 @@ Total time spent in the CPU: 20
 Number of times it was in the IO: 1
 Total time spent in the IO: 60
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -537,6 +590,7 @@ Total time spent in the CPU: 51
 Number of times it was in the IO: 1
 Total time spent in the IO: 29
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -547,6 +601,7 @@ Total time spent in the CPU: 95
 Number of times it was in the IO: 1
 Total time spent in the IO: 60
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -557,6 +612,7 @@ Total time spent in the CPU: 82
 Number of times it was in the IO: 1
 Total time spent in the IO: 40
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -567,6 +623,7 @@ Total time spent in the CPU: 96
 Number of times it was in the IO: 1
 Total time spent in the IO: 38
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -577,6 +634,7 @@ Total time spent in the CPU: 203
 Number of times it was in the IO: 4
 Total time spent in the IO: 181
 Number of times it was waiting for memory: 0
+Number of times it was preempted: 0
 Time it terminated or was killed: 22197
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -587,6 +645,7 @@ Total time spent in the CPU: 50
 Number of times it was in the IO: 1
 Total time spent in the IO: 24
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -597,6 +656,7 @@ Total time spent in the CPU: 28
 Number of times it was in the IO: 1
 Total time spent in the IO: 44
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -607,6 +667,7 @@ Total time spent in the CPU: 289
 Number of times it was in the IO: 4
 Total time spent in the IO: 159
 Number of times it was waiting for memory: 0
+Number of times it was preempted: 0
 Time it terminated or was killed: 22938
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -617,6 +678,7 @@ Total time spent in the CPU: 60
 Number of times it was in the IO: 1
 Total time spent in the IO: 52
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -627,6 +689,7 @@ Total time spent in the CPU: 88
 Number of times it was in the IO: 1
 Total time spent in the IO: 21
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -637,6 +700,7 @@ Total time spent in the CPU: 81
 Number of times it was in the IO: 1
 Total time spent in the IO: 56
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -647,6 +711,7 @@ Total time spent in the CPU: 55
 Number of times it was in the IO: 1
 Total time spent in the IO: 50
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -657,6 +722,7 @@ Total time spent in the CPU: 100
 Number of times it was in the IO: 1
 Total time spent in the IO: 56
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -667,6 +733,7 @@ Total time spent in the CPU: 263
 Number of times it was in the IO: 4
 Total time spent in the IO: 128
 Number of times it was waiting for memory: 0
+Number of times it was preempted: 0
 Time it terminated or was killed: 25427
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -677,6 +744,7 @@ Total time spent in the CPU: 58
 Number of times it was in the IO: 1
 Total time spent in the IO: 48
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -687,6 +755,7 @@ Total time spent in the CPU: 276
 Number of times it was in the IO: 4
 Total time spent in the IO: 123
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 25763
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -697,6 +766,7 @@ Total time spent in the CPU: 91
 Number of times it was in the IO: 4
 Total time spent in the IO: 160
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 25889
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -707,6 +777,7 @@ Total time spent in the CPU: 148
 Number of times it was in the IO: 4
 Total time spent in the IO: 151
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 26159
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -717,6 +788,7 @@ Total time spent in the CPU: 99
 Number of times it was in the IO: 1
 Total time spent in the IO: 59
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -727,6 +799,7 @@ Total time spent in the CPU: 186
 Number of times it was in the IO: 4
 Total time spent in the IO: 204
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 26656
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -737,6 +810,7 @@ Total time spent in the CPU: 82
 Number of times it was in the IO: 1
 Total time spent in the IO: 39
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -747,6 +821,7 @@ Total time spent in the CPU: 121
 Number of times it was in the IO: 3
 Total time spent in the IO: 91
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -757,6 +832,7 @@ Total time spent in the CPU: 233
 Number of times it was in the IO: 4
 Total time spent in the IO: 157
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 27543
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -767,6 +843,7 @@ Total time spent in the CPU: 225
 Number of times it was in the IO: 3
 Total time spent in the IO: 114
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -777,6 +854,7 @@ Total time spent in the CPU: 209
 Number of times it was in the IO: 4
 Total time spent in the IO: 143
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 28149
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -787,6 +865,7 @@ Total time spent in the CPU: 87
 Number of times it was in the IO: 1
 Total time spent in the IO: 40
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -797,6 +876,7 @@ Total time spent in the CPU: 148
 Number of times it was in the IO: 3
 Total time spent in the IO: 141
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -807,6 +887,7 @@ Total time spent in the CPU: 234
 Number of times it was in the IO: 4
 Total time spent in the IO: 145
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 28880
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -817,6 +898,7 @@ Total time spent in the CPU: 126
 Number of times it was in the IO: 4
 Total time spent in the IO: 173
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 28964
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -827,6 +909,7 @@ Total time spent in the CPU: 94
 Number of times it was in the IO: 1
 Total time spent in the IO: 23
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 0
 Final state: KILLED
 -------------------------------------------------------------------------------
@@ -837,6 +920,7 @@ Total time spent in the CPU: 163
 Number of times it was in the IO: 4
 Total time spent in the IO: 161
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 29146
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -847,6 +931,7 @@ Total time spent in the CPU: 249
 Number of times it was in the IO: 4
 Total time spent in the IO: 133
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 29189
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -857,6 +942,7 @@ Total time spent in the CPU: 128
 Number of times it was in the IO: 4
 Total time spent in the IO: 158
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 29274
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -867,6 +953,7 @@ Total time spent in the CPU: 208
 Number of times it was in the IO: 4
 Total time spent in the IO: 145
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 29320
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -877,6 +964,7 @@ Total time spent in the CPU: 135
 Number of times it was in the IO: 4
 Total time spent in the IO: 152
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 29398
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -887,6 +975,7 @@ Total time spent in the CPU: 192
 Number of times it was in the IO: 4
 Total time spent in the IO: 131
 Number of times it was waiting for memory: 4
+Number of times it was preempted: 0
 Time it terminated or was killed: 29536
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -897,6 +986,7 @@ Total time spent in the CPU: 239
 Number of times it was in the IO: 4
 Total time spent in the IO: 183
 Number of times it was waiting for memory: 4
+Number of times it was preempted: 0
 Time it terminated or was killed: 29621
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -907,6 +997,7 @@ Total time spent in the CPU: 196
 Number of times it was in the IO: 4
 Total time spent in the IO: 156
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 29861
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -917,6 +1008,7 @@ Total time spent in the CPU: 202
 Number of times it was in the IO: 4
 Total time spent in the IO: 185
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 29963
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -927,6 +1019,7 @@ Total time spent in the CPU: 233
 Number of times it was in the IO: 4
 Total time spent in the IO: 142
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 30192
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -937,6 +1030,7 @@ Total time spent in the CPU: 234
 Number of times it was in the IO: 4
 Total time spent in the IO: 151
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 30629
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -947,6 +1041,7 @@ Total time spent in the CPU: 295
 Number of times it was in the IO: 4
 Total time spent in the IO: 144
 Number of times it was waiting for memory: 1
+Number of times it was preempted: 0
 Time it terminated or was killed: 30747
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -957,6 +1052,7 @@ Total time spent in the CPU: 280
 Number of times it was in the IO: 4
 Total time spent in the IO: 142
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 31120
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -967,6 +1063,7 @@ Total time spent in the CPU: 289
 Number of times it was in the IO: 4
 Total time spent in the IO: 148
 Number of times it was waiting for memory: 3
+Number of times it was preempted: 0
 Time it terminated or was killed: 31259
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -977,6 +1074,7 @@ Total time spent in the CPU: 203
 Number of times it was in the IO: 4
 Total time spent in the IO: 127
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 31400
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -987,6 +1085,7 @@ Total time spent in the CPU: 285
 Number of times it was in the IO: 4
 Total time spent in the IO: 151
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 31737
 Final state: TERMINATED
 -------------------------------------------------------------------------------
@@ -997,6 +1096,7 @@ Total time spent in the CPU: 307
 Number of times it was in the IO: 4
 Total time spent in the IO: 142
 Number of times it was waiting for memory: 2
+Number of times it was preempted: 0
 Time it terminated or was killed: 31983
 Final state: TERMINATED
 

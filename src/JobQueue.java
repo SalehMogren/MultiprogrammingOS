@@ -11,7 +11,7 @@ import java.io.IOException;
 public class JobQueue {
 	
 	
-	private static final String INPUTFILE = "inputFile.txt";
+	private static final String INPUTFILE = "inputFile1.txt";
 	private BufferedReader br;
 	private FileReader fr;
 	private String sCurrentLine;

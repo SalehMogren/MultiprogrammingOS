@@ -19,6 +19,7 @@ public class PCB {
 	private int CPUendTime;
 	private int readyQueueTime; // number of times the process has been in ready queue
 	private int endTime;
+	private int numOfPrem;
 	private int arrtime;
 	private int indicator=0;
 	private ProccessState state;
@@ -218,7 +219,13 @@ public class PCB {
 //			return 0;
 		return this.Cycles.length();
 	}
+	public int getNumOfPrem() {
+		return this.numOfPrem;
+	}
 
+	public void increaseNumOfPrem() {
+		this.numOfPrem++;
+	}
 	
 	
 	

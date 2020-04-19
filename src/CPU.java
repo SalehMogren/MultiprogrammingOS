@@ -13,39 +13,23 @@ public class CPU {
 	private Queue<PCB> waitingQueue;
 	PQ<PCB> premetidProcess;
 
-	// Based on the arrival time , we execute first process then check the
-	//
 	void startCpu() {
 		ram = new RAM();
 		readyQueue = ram.loadToReady();
 		waitingQueue = ram.getWaitingQueue();
 		premetidProcess = new PQ<PCB>();
-//		int m = 0; // Number of waiting processes in waiting queue
 
 		while (true) {
-//			m = waitingQueue.length();
 			int currentTime = Clock.time;
-			// general way
 
 			if (Clock.time % 100 == 0 || readyQueue.length() == 0) {
 				// you should reactivate job scheduler
 				readyQueue = ram.loadToReady(); // new processes from the Job queue
 
 			}
-//			if (readyQueue.length() == 0 && m != 0) {
-//				Clock.time++;
-//				continue;
-//			}
-
-//			if (readyQueue.length() == 0 && m == 0) {
-//				return;
-//			}
-
-//			PCB process1= readyQueue.peek();
 
 			PCB process = minProcess();
-//			if(process1==process)
-//				returnToReadyQueue(process1);
+
 			if (process != null) {
 				int cBurst = process.getFirstCPU();
 				int i = 0;
@@ -55,9 +39,7 @@ public class CPU {
 					process.CPUNumIncrement();
 
 					++Clock.time;
-					// null Pointer here
 					process.getCycles().peek().setCpuBurst(process.getCycles().peek().getCpuBurst() - 1);
-//				process.getFirstCycle().setCpuBurst(process.getFirstCycle().getCpuBurst() - 1);
 
 				}
 				if (Clock.time >= process.getarrtime()) {
@@ -70,7 +52,6 @@ public class CPU {
 						if (readyQueue.peek().data.getFirstCPU() < cBurst) {
 							process.setState(ProccessState.WAITING);
 
-//						premetidProcess.enqueue(process, process.getFirstCycle().getCpuBurst());
 							continue;
 						}
 				}
@@ -120,27 +101,12 @@ public class CPU {
 			if (currentTime == Clock.time)
 				++Clock.time;
 
-			if (ram.isEmpty()&&premetidProcess.length()==0) {
+			if (ram.isEmpty() && premetidProcess.length() == 0) {
 				break;
 			}
 		}
 
 	}
-
-//	private void returnToReadyQueue(PCB process1) {
-//		// TODO Auto-generated method stub
-//		Queue<PCB> q1 = new Queue<PCB>();
-//
-//		q1.enqueue(process1);
-//		int x = readyQueue.length();
-//		for (int i = 0; i < x; i++)
-//			q1.enqueue(readyQueue.serve());
-//
-//		x = q1.length();
-//		for (int i = 0; i < x; i++)
-//			readyQueue.enqueue(q1.serve());
-//
-//	}
 
 	// this method checks if the next Process meet the arrival condition and min
 	//
@@ -206,16 +172,6 @@ public class CPU {
 		}
 		return min;
 	}
-
-	
-
-//	public Queue<PCB> getReadyQueue() {
-//		return readyQueue;
-//	}
-//
-//	public void setReadyQueue(Queue<PCB> readyQueue) {
-//		this.readyQueue = readyQueue;
-//	}
 
 	public RAM getRam() {
 		return ram;
